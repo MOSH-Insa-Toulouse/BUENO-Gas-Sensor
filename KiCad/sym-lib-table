@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name Capteur_gaz_connecté-rescue)(type Legacy)(uri ${KIPRJMOD}/Capteur_gaz_connecté-rescue.lib)(options "")(descr ""))
+  (lib (name Projet_MOSH)(type Legacy)(uri C:/Users/tbueno/Desktop/Capteur_gaz_connecté/Projet_MOSH.lib)(options "")(descr ""))
+)

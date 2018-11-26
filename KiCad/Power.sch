@@ -1,0 +1,294 @@
+EESchema Schematic File Version 4
+LIBS:Capteur_gaz_connecté-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 6
+Title "Connected gas sensor - Power supply"
+Date "2018-11-25"
+Rev "0.5"
+Comp "INSA Toulouse"
+Comment1 "Théo BUENO <tbueno@etud.insa-toulouse.fr>"
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Regulator_Linear:LM7805_TO220 U2
+U 1 1 5BB38639
+P 5000 2400
+F 0 "U2" H 5000 2642 50  0000 C CNN
+F 1 "LM7805_TO220" H 5000 2551 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 5000 2625 50  0001 C CIN
+F 3 "http://www.fairchildsemi.com/ds/LM/LM7805.pdf" H 5000 2350 50  0001 C CNN
+	1    5000 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C2
+U 1 1 5BB386BC
+P 4450 2550
+F 0 "C2" H 4565 2596 50  0000 L CNN
+F 1 "47µ" H 4565 2505 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" H 4488 2400 50  0001 C CNN
+F 3 "~" H 4450 2550 50  0001 C CNN
+	1    4450 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4450 2700 4450 2900
+$Comp
+L power:GND #PWR07
+U 1 1 5BB3875F
+P 5000 2900
+F 0 "#PWR07" H 5000 2650 50  0001 C CNN
+F 1 "GND" H 5005 2727 50  0000 C CNN
+F 2 "" H 5000 2900 50  0001 C CNN
+F 3 "" H 5000 2900 50  0001 C CNN
+	1    5000 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C3
+U 1 1 5BB387E7
+P 5550 2550
+F 0 "C3" H 5665 2596 50  0000 L CNN
+F 1 "47µ" H 5665 2505 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" H 5588 2400 50  0001 C CNN
+F 3 "~" H 5550 2550 50  0001 C CNN
+	1    5550 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5300 2400 5550 2400
+Connection ~ 5550 2400
+Wire Wire Line
+	5550 2700 5550 2900
+$Comp
+L Device:C C4
+U 1 1 5BB3892E
+P 5900 2550
+F 0 "C4" H 6015 2596 50  0000 L CNN
+F 1 "0,1µ" H 6015 2505 50  0000 L CNN
+F 2 "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm" H 5938 2400 50  0001 C CNN
+F 3 "~" H 5900 2550 50  0001 C CNN
+	1    5900 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5900 2700 5900 2900
+Text HLabel 7100 2400 2    50   Input ~ 0
+pwr_5v
+Connection ~ 5900 2400
+Wire Wire Line
+	5550 2400 5900 2400
+Connection ~ 4450 2400
+Wire Wire Line
+	4450 2400 4700 2400
+Text HLabel 7100 1800 2    50   Input ~ 0
+pwr_3v3
+Wire Wire Line
+	5550 2400 5550 2100
+$Comp
+L Device:R R3
+U 1 1 5BB75ABA
+P 5550 1950
+F 0 "R3" H 5620 1996 50  0000 L CNN
+F 1 "330" H 5620 1905 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" V 5480 1950 50  0001 C CNN
+F 3 "~" H 5550 1950 50  0001 C CNN
+	1    5550 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5550 1800 5550 1700
+$Comp
+L Device:LED D2
+U 1 1 5BB75EF9
+P 5400 1700
+F 0 "D2" H 5391 1916 50  0000 C CNN
+F 1 "LED" H 5391 1825 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm" H 5400 1700 50  0001 C CNN
+F 3 "~" H 5400 1700 50  0001 C CNN
+	1    5400 1700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5250 1700 5150 1700
+$Comp
+L power:GND #PWR08
+U 1 1 5BB76207
+P 5150 1700
+F 0 "#PWR08" H 5150 1450 50  0001 C CNN
+F 1 "GND" V 5155 1572 50  0000 R CNN
+F 2 "" H 5150 1700 50  0001 C CNN
+F 3 "" H 5150 1700 50  0001 C CNN
+	1    5150 1700
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D3
+U 1 1 5BD699D0
+P 6250 2550
+F 0 "D3" V 6204 2629 50  0000 L CNN
+F 1 "D" V 6295 2629 50  0000 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P7.62mm_Horizontal" H 6250 2550 50  0001 C CNN
+F 3 "~" H 6250 2550 50  0001 C CNN
+	1    6250 2550
+	0    1    1    0   
+$EndComp
+Connection ~ 6250 2400
+Wire Wire Line
+	6250 2400 6600 2400
+Wire Wire Line
+	5900 2400 6250 2400
+Wire Wire Line
+	6250 2700 6250 2900
+$Comp
+L Connector:Barrel_Jack_MountingPin J1
+U 1 1 5BD755B6
+P 2800 2500
+F 0 "J1" H 2800 2900 50  0000 C CNN
+F 1 "Barrel_Jack_MountingPin" H 2400 2750 50  0000 C CNN
+F 2 "Connector_BarrelJack:BarrelJack_Horizontal" H 2850 2460 50  0001 C CNN
+F 3 "~" H 2850 2460 50  0001 C CNN
+	1    2800 2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3100 2600 3350 2600
+Wire Wire Line
+	3350 2600 3350 2900
+$Comp
+L power:GND #PWR05
+U 1 1 5BD75BC6
+P 3350 2900
+F 0 "#PWR05" H 3350 2650 50  0001 C CNN
+F 1 "GND" H 3355 2727 50  0000 C CNN
+F 2 "" H 3350 2900 50  0001 C CNN
+F 3 "" H 3350 2900 50  0001 C CNN
+	1    3350 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2800 2800 2800 2900
+NoConn ~ 2800 2900
+$Comp
+L power:PWR_FLAG #FLG0101
+U 1 1 5BD7E42C
+P 4450 2400
+F 0 "#FLG0101" H 4450 2475 50  0001 C CNN
+F 1 "PWR_FLAG" H 4450 2574 50  0000 C CNN
+F 2 "" H 4450 2400 50  0001 C CNN
+F 3 "~" H 4450 2400 50  0001 C CNN
+	1    4450 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6250 2900 5900 2900
+Connection ~ 5000 2900
+Wire Wire Line
+	5000 2900 4450 2900
+Connection ~ 5550 2900
+Wire Wire Line
+	5550 2900 5000 2900
+Connection ~ 5900 2900
+Wire Wire Line
+	5900 2900 5550 2900
+Wire Wire Line
+	5000 2700 5000 2900
+$Comp
+L Regulator_Linear:TLV1117-33 U6
+U 1 1 5BE7F97C
+P 6600 2100
+F 0 "U6" V 6646 2204 50  0000 L CNN
+F 1 "TLV1117-33" V 6555 2204 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 6600 2100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tlv1117.pdf" H 6600 2100 50  0001 C CNN
+	1    6600 2100
+	0    -1   -1   0   
+$EndComp
+Connection ~ 6600 2400
+Wire Wire Line
+	6600 2400 7100 2400
+Wire Wire Line
+	6600 1800 7000 1800
+Wire Wire Line
+	6900 2100 7000 2100
+$Comp
+L power:GND #PWR010
+U 1 1 5BE80A9E
+P 7100 2100
+F 0 "#PWR010" H 7100 1850 50  0001 C CNN
+F 1 "GND" V 7105 1972 50  0000 R CNN
+F 2 "" H 7100 2100 50  0001 C CNN
+F 3 "" H 7100 2100 50  0001 C CNN
+	1    7100 2100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C C9
+U 1 1 5BE9DE87
+P 7000 1950
+F 0 "C9" H 7115 1996 50  0000 L CNN
+F 1 "47µ" H 7115 1905 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" H 7038 1800 50  0001 C CNN
+F 3 "~" H 7000 1950 50  0001 C CNN
+	1    7000 1950
+	1    0    0    -1  
+$EndComp
+Connection ~ 7000 1800
+Wire Wire Line
+	7000 1800 7100 1800
+Connection ~ 7000 2100
+Wire Wire Line
+	7000 2100 7100 2100
+$Comp
+L Switch:SW_DPDT_x2 SW2
+U 1 1 5BF4317A
+P 3800 2400
+F 0 "SW2" H 3800 2685 50  0000 C CNN
+F 1 "SW_DPDT_x2" H 3800 2594 50  0000 C CNN
+F 2 "Projet_MOSH:Switch_SPDT_THT_6x12" H 3800 2400 50  0001 C CNN
+F 3 "" H 3800 2400 50  0001 C CNN
+	1    3800 2400
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4000 2400 4450 2400
+Wire Wire Line
+	3600 2500 3500 2500
+Wire Wire Line
+	3600 2300 3500 2300
+Wire Wire Line
+	3500 2300 3500 2200
+Wire Wire Line
+	3500 2500 3500 2400
+Wire Wire Line
+	3100 2400 3500 2400
+$Comp
+L Connector:Conn_01x02_Male J2
+U 1 1 5BF4ACE8
+P 3500 2000
+F 0 "J2" V 3300 2000 50  0000 L CNN
+F 1 "Conn_01x02_Male" V 3400 2000 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 3500 2000 50  0001 C CNN
+F 3 "~" H 3500 2000 50  0001 C CNN
+	1    3500 2000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3400 2200 3300 2200
+$Comp
+L power:GND #PWR011
+U 1 1 5BF4B84F
+P 3300 2200
+F 0 "#PWR011" H 3300 1950 50  0001 C CNN
+F 1 "GND" V 3305 2072 50  0000 R CNN
+F 2 "" H 3300 2200 50  0001 C CNN
+F 3 "" H 3300 2200 50  0001 C CNN
+	1    3300 2200
+	0    1    1    0   
+$EndComp
+$EndSCHEMATC

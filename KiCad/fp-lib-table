@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name Projet_MOSH)(type KiCad)(uri ${KIPRJMOD}/Projet_MOSH.pretty)(options "")(descr ""))
+)
