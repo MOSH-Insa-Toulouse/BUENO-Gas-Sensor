@@ -28,19 +28,36 @@ Data acquisition from the gas sensor can be made with the integrated grove senso
 There are two LEDs: one indicates power supply and the other data transmission over the Atmega328P's hardware serial (for programming). Both are optional. The RN2483 is controlled over software UART. The microcontroller can reset the RN2483 when needed.
 
 ## Software
-### Arduino
+### Atmega328P
+#### Bootloader
+Brand new Atmega328Ps are not burned with a bootloader that allow for the Arduino IDE to reflash them through serial.
+
+In order to flash them, you need to burn the bootloader included with the Arduino distribution. This process needs any working Arduino board and a virgin Atmega chip. Process can be found on the official Arduino documentation: [Burning the Bootloader](https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard).
+
+#### Firmware
+Firmware can be compiled and flashed with the Arduino IDE. You need a USB/Serial adapter like [Sparkfun's FTDI Basic Breakout](https://www.sparkfun.com/products/9716) which has a compatible header pinout with this project.
+
+#### Arduino
 Software is a single file Arduino program. Communication and interfacing with the RN2483 modem is done with the [The Things Network Arduino library](https://www.thethingsnetwork.org/docs/devices/arduino/).
 
 We simply poll the ADC to get the value from the gas sensor. If values reaches a threshold data is sent over the LoRaWAN network to the NodeRed dashboard.
 
 We support LoRa downlinks.
 
-LoRa trame counter could use Atmega328P's internal EEPROM. If not, trame count check should be disabled on the LoRa network used (The Things Network dashboard for instance).
+LoRa trame counter could use Atmega328P's internal EEPROM. If not, trame count check should be disabled on the LoRa network used (The Things Network dashboard for instance). I chose not to because EEPROMs have a limited write cycle count.
 
 ### Dashboard
 NodeRed dashboard: to be completed
 
 ## Hardware
+All hardware components were designed using the KiCad EDA. KiCad is free software and developed by volunteers all around the world. You can support its continued development by [donating to the CERN Foundation](https://giving.web.cern.ch/civicrm/contribute/transact?reset=1&id=6), which is investing a lot of ressources and efforts to make KiCad a competitive software.
+
+### Schematic
+The schematic was designed using hierarchical sheets.
+![alt text][schematic]
+
+You can navigate to and from any submodules by using the hierarchy view tool on KiCad. This way you can also see the connections between submodules of the design in a clear way. The drawback of this method is that it generates prints with lots of pages even for small circuits.
+
 ### Circuit design
 ![alt text][PCB]
 The circuit is 1-layer only (top), with the 2nd layer (bottom) being the ground plane. Only one connection could not be routed on the top side and required two vias to put a strap on the top (the 3.3V line between regulator and RN2483 modem).
@@ -67,7 +84,7 @@ You have the option to "hack" the board to use a voltage divider with two resist
 ### Improvements
 Big TO-220 packages are a waste of space. Design would benefit from smaller packages for 3.3V/5V regulators and MOSFET.
 
-There is no logic level shifter between the RN2483 (3.3V logic) and the Atmega328P (5V logic). Pray that your RN2483 is 5V tolerant.
+There is no logic level shifter between the RN2483 (3.3V logic) and the Atmega328P (5V logic). Pray that your RN2483 is 5V tolerant .
 
 Some tracks are really close to the mounting holes of the RN2483 breakout or to pads. It would be better to optimize routing and components placement to isolate them better.
 
@@ -77,3 +94,4 @@ We could imagine a design with an onboard battery charger coupled with photovolt
 [side]: Images/top_side.png "Board preview from the side"
 [bottom]: Images/bottom.png "Board preview from the bottom"
 [PCB]: Images/PCB.png "PCB preview"
+[schematic]: Images/schematic_main.png "Main sheet schematic view"
