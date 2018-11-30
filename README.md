@@ -47,7 +47,11 @@ We support LoRa downlinks.
 LoRa trame counter could use Atmega328P's internal EEPROM. If not, trame count check should be disabled on the LoRa network used (The Things Network dashboard for instance). I chose not to because EEPROMs have a limited write cycle count.
 
 ### Dashboard
-NodeRed dashboard: to be completed
+To handle uplinks received over The Things Network, one may use a Node-RED server with the official [TTN Node-RED package](https://github.com/TheThingsNetwork/nodered-app-node).
+
+The [quickstart](https://github.com/TheThingsNetwork/nodered-app-node/blob/master/docs/quickstart.md) page guides through the set-up of such system. You can then handle your data with any Node-RED connected system.
+
+I successfully set-up a dashboard which logs received messages from the sensor in a console.
 
 ## Hardware
 All hardware components were designed using the KiCad EDA. KiCad is free software and developed by volunteers all around the world. You can support its continued development by [donating to the CERN Foundation](https://giving.web.cern.ch/civicrm/contribute/transact?reset=1&id=6), which is investing a lot of ressources and efforts to make KiCad a competitive software.
